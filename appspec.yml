@@ -3,7 +3,7 @@ os: linux            # 대상 OS (보통 EC2는 Linux)
 
 files: # 어떤 파일을 어디에 복사할지
   - source: /        # GitHub Actions에서 압축한 루트 전체
-    destination: /home/ubuntu/memozy-back  # EC2에서의 대상 디렉토리
+    destination: /home/ubuntu/sopkathon-server  # EC2에서의 대상 디렉토리
     overwrite: yes  # 이미 존재하는 파일 덮어쓰기
 
 file_exist_behavior: OVERWRITE # 파일이 존재할 때의 동작 (OVERWRITE, RETAIN, REPLACE)
