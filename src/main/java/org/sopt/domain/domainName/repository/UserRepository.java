@@ -1,0 +1,8 @@
+package org.sopt.domain.domainName.repository;
+
+import org.sopt.domain.domainName.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
+}
