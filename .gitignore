@@ -1,0 +1,90 @@
+# ====================
+# Java / Gradle
+# ====================
+*.class
+*.jar
+*.war
+*.ear
+
+# Compiled source #
+/build/
+/out/
+
+# Gradle
+.gradle/
+gradle-app.setting
+
+# Gradle wrapper 포함시키기
+!gradlew
+!gradlew.bat
+!gradle/wrapper/
+!gradle/wrapper/gradle-wrapper.properties
+!gradle/wrapper/gradle-wrapper.jar
+
+# gradlew 실행 스크립트 포함시키기
+!gradlew
+!gradlew.bat
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+
+# ====================
+# Spring Boot 관련
+# ====================
+
+# Local config
+*.yaml
+*.properties
+.env
+.env.*
+application-prod.yml
+
+# ====================
+# IntelliJ / IDE
+# ====================
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# VSCode
+.vscode/
+
+# ====================
+# OS / 시스템 파일
+# ====================
+.DS_Store
+Thumbs.db
+
+# ====================
+# AWS / 자격 증명
+# ====================
+.aws/
+**/credentials
+**/secrets
+
+# ====================
+# 테스트 관련
+# ====================
+test-output/
+reports/
+jacoco.exec
+
+# ====================
+# Database
+# ====================
+*.db
+*.h2.db
+*.mv.db
+
+# ====================
+# 기타 개인 파일
+# ====================
+*.key
+*.pem
+*.crt
