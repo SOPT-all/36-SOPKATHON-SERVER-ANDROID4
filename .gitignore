@@ -15,15 +15,12 @@
 gradle-app.setting
 
 # Gradle wrapper 포함시키기
+!gradle/
 !gradlew
 !gradlew.bat
 !gradle/wrapper/
 !gradle/wrapper/gradle-wrapper.properties
 !gradle/wrapper/gradle-wrapper.jar
-
-# gradlew 실행 스크립트 포함시키기
-!gradlew
-!gradlew.bat
 
 # Logs
 *.log
@@ -38,7 +35,6 @@ gradle-app.setting
 
 # Local config
 *.yaml
-*.properties
 .env
 .env.*
 application-prod.yml
