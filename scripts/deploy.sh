@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROJECT_NAME=sopt-hackathon-server
+PROJECT_NAME=sopkathon-server
 REPOSITORY=/home/ubuntu/$PROJECT_NAME
 JAR_NAME=$(ls $REPOSITORY/build/libs | grep 'SNAPSHOT.jar' | tail -n 1)
 JAR_PATH=$REPOSITORY/build/libs/$JAR_NAME
