@@ -2,11 +2,13 @@ package org.sopt.domain.user.domain;
 
 
 import jakarta.persistence.*;
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.sopt.domain.bookmark.domain.Bookmark;
 
 @Entity
 @Getter
@@ -23,4 +25,7 @@ public class User {
 
     private String profileImageUrl;
     private String description;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Bookmark> bookmarks;
 }
