@@ -1,9 +1,11 @@
 package org.sopt.global.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.sopt.global.exception.ErrorCode;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
 public record ApiResponse<T>(
         int status,
         String message,

@@ -22,9 +22,11 @@ public enum ErrorCode {
 
     //bookmark
     ALREADY_BOOKMARKED(HttpStatus.CONFLICT, "이미 북마크된 코스입니다."),
+    BOOKMARK_NOT_FOUND(HttpStatus.NOT_FOUND, "북마크되어 있지 않던 코스입니다." ),
 
     //course
     COURSE_NOT_FOUND(HttpStatus.NOT_FOUND, "해당 코스는 존재하지 않습니다." );
+
 
 
     private final HttpStatus httpStatus;
