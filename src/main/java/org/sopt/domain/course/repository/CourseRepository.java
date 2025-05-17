@@ -1,4 +1,4 @@
-package org.sopt.domain.bookmark.dto.repository;
+package org.sopt.domain.course.repository;
 
 import java.util.Optional;
 import org.sopt.domain.course.domain.Course;

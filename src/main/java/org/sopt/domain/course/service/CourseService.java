@@ -2,9 +2,9 @@ package org.sopt.domain.course.service;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.sopt.domain.bookmark.dto.repository.CourseRepository;
 import org.sopt.domain.course.domain.Course;
 import org.sopt.domain.course.dto.response.GetCourseDetailsResponse;
+import org.sopt.domain.course.repository.CourseRepository;
 import org.sopt.domain.spot.domain.Spot;
 import org.sopt.domain.user.repository.UserRepository;
 import org.sopt.global.exception.BusinessException;
