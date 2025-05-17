@@ -4,6 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.sopt.domain.bookmark.domain.Bookmark;
 import org.sopt.domain.bookmark.respository.BookmarkRepository;
 import org.sopt.domain.course.domain.Course;
+import org.sopt.domain.course.dto.response.GetCourseResponse;
+import org.sopt.domain.course.dto.response.GetCourseThumbnailResponse;
+import org.sopt.domain.course.repository.CourseRepository;
 import org.sopt.domain.user.domain.User;
 import org.sopt.domain.user.dto.response.GetMyPageResponse;
 import org.sopt.domain.user.dto.response.GetUserListResponse;
@@ -11,9 +14,9 @@ import org.sopt.domain.user.repository.UserRepository;
 import org.sopt.global.exception.BusinessException;
 import org.sopt.global.exception.ErrorCode;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional(readOnly = true)
@@ -22,6 +25,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final BookmarkRepository bookmarkRepository;
+    private final CourseRepository courseRepository;
 
     public GetUserListResponse getCuratorList(final Long userId) {
         List<User> curatorList = userRepository.findAll();
@@ -38,5 +42,27 @@ public class UserService {
                 .toList();
 
         return GetMyPageResponse.of(user, courseList);
+    }
+
+    public GetCourseResponse getCuratorInformationAndCourseList(final Long headerUserId, final Long pathUserId) {
+        userRepository.findById(headerUserId)
+                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_USER_EXCEPTION));
+
+        User pathUser = userRepository.findById(pathUserId)
+                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_USER_EXCEPTION));
+        List<Long> bookmarkedCourseIds = bookmarkRepository.findCourseIdsBookmarkedByUserId(headerUserId);
+
+        List<GetCourseThumbnailResponse> courseList = courseRepository
+                .findAllWithSpotsByUserIdOrderByRecordDateDesc(pathUserId)
+                .stream()
+                .map(course -> GetCourseThumbnailResponse.from(
+                        course,
+                        bookmarkedCourseIds.contains(course.getId())
+                ))
+                .toList();
+
+        //List<Course> bookmarkList = bookmarkRepository.findAllBookmarkedCoursesByUserId(pathUserId);
+        //return GetCourseResponse.from(pathUser, courseList, bookmarkList);
+        return GetCourseResponse.from(pathUser, courseList);
     }
 }
