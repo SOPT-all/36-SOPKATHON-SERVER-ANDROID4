@@ -3,6 +3,7 @@ package org.sopt.domain.course.service;
 import lombok.RequiredArgsConstructor;
 import org.sopt.domain.course.domain.Course;
 import org.sopt.domain.course.dto.response.GetCourseDetailsResponse;
+import org.sopt.domain.course.repository.CourseRepository;
 import org.sopt.global.exception.BusinessException;
 import org.sopt.global.exception.ErrorCode;
 import org.springframework.stereotype.Service;
