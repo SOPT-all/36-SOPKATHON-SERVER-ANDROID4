@@ -18,7 +18,10 @@ public enum ErrorCode {
     NOT_FOUND_USER_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 사용자입니다."),
     INVALID_ACCESS_EXCEPTION(HttpStatus.FORBIDDEN, "잘못된 접근입니다."),
     METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED, "지원하지 않는 HTTP 메소드입니다."),
-    INVALID_ID(HttpStatus.BAD_REQUEST,"아이디가 올바르지 않습니다.");
+    INVALID_ID(HttpStatus.BAD_REQUEST,"아이디가 올바르지 않습니다."),
+
+    //bookmark
+    ALREADY_BOOKMARKED(HttpStatus.CONFLICT, "이미 북마크된 코스입니다.");
 
 
     private final HttpStatus httpStatus;
