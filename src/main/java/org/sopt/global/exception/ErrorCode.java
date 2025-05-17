@@ -21,7 +21,10 @@ public enum ErrorCode {
     INVALID_ID(HttpStatus.BAD_REQUEST,"아이디가 올바르지 않습니다."),
 
     //bookmark
-    ALREADY_BOOKMARKED(HttpStatus.CONFLICT, "이미 북마크된 코스입니다.");
+    ALREADY_BOOKMARKED(HttpStatus.CONFLICT, "이미 북마크된 코스입니다."),
+
+    //course
+    COURSE_NOT_FOUND(HttpStatus.NOT_FOUND, "해당 코스는 존재하지 않습니다." );
 
 
     private final HttpStatus httpStatus;
