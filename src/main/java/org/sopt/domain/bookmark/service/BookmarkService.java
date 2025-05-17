@@ -21,6 +21,7 @@ public class BookmarkService {
     private final CourseRepository courseRepository;
     private final BookmarkRepository bookmarkRepository;
 
+    @Transactional
     public void create(Long userId, Long courseId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_USER_EXCEPTION));
@@ -32,5 +33,18 @@ public class BookmarkService {
         }
 
         bookmarkRepository.save(Bookmark.create(user, course));
+    }
+
+    @Transactional
+    public void delete(Long userId, Long courseId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_USER_EXCEPTION));
+        Course course = courseRepository.findById(courseId)
+                .orElseThrow(() -> new BusinessException(ErrorCode.COURSE_NOT_FOUND));
+
+        Bookmark bookmark = bookmarkRepository.findByUserAndCourse(user, course)
+                .orElseThrow(() -> new BusinessException(ErrorCode.BOOKMARK_NOT_FOUND));
+
+        bookmarkRepository.delete(bookmark);
     }
 }
