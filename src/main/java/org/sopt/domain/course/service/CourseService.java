@@ -6,7 +6,6 @@ import org.sopt.domain.course.domain.Course;
 import org.sopt.domain.course.dto.response.GetCourseDetailsResponse;
 import org.sopt.domain.course.repository.CourseRepository;
 import org.sopt.domain.spot.domain.Spot;
-import org.sopt.domain.user.repository.UserRepository;
 import org.sopt.global.exception.BusinessException;
 import org.sopt.global.exception.ErrorCode;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class CourseService {
 
-    private final UserRepository userRepository;
     private final CourseRepository courseRepository;
 
     @Transactional(readOnly = true)
